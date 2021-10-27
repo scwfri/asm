@@ -1,7 +1,7 @@
-        .global _start
+        .global main
 
         .text
-_start:
+main:
         # write(1, message, 13)
         mov     $1, %rax                # system call 1 is write
         mov     $1, %rdi                # file handle 1 is stdout
