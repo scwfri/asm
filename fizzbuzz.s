@@ -3,28 +3,21 @@
         .text
 
 main:
-        pushq %rbp
-        movq %rsp, %rbp
-
-        movq $3, %rdi
-        movq $5, %rsi
-        //call add
-        mov $message, %rsi;
-        mov $1, %rax
-        mov $1, %rdi
-        mov $2, %rdx
-        syscall
-
-        movq %rbp, %rsp
-        popq %rbp
+        mov $fizz, %rsi
+        mov $5, %rdx
+        call printit
+        mov $buzz, %rsi
+        mov $5, %rdx
+        call printit
         ret
 
-add:
-        addq %rdi, %rsi
-        mov $message, %rsi;
+printit:
         mov $1, %rax
         mov $1, %rdi
         syscall
+        ret
 
-message:
-        .ascii "5\n"
+fizz:
+        .ascii "Fizz\n"
+buzz:
+        .ascii "Buzz\n"
